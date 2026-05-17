@@ -1,0 +1,11 @@
+<div class="popular-block">
+    <h3>Популярные тесты</h3>
+    <ul>
+        {% for test in popular_tests %}
+            <li>
+                <a href="{% url 'test-detail' test.id %}">{{ test.title }}</a>
+                ({{ test.views }} просмотров)
+            </li>
+        {% endfor %}
+    </ul>
+</div>

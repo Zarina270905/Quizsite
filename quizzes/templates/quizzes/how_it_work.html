@@ -1,0 +1,12 @@
+{% extends 'quizzes/base.html' %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    
+    <h2>Инструкция:</h2>
+    <ol>
+        {% for step in steps %}
+            <li>{{ step }}</li>
+        {% endfor %}
+    </ol>
+{% endblock %}

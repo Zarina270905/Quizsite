@@ -1,0 +1,27 @@
+{% extends 'quizzes/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="map-container">
+    <h1 class="map-title">Карта квизов</h1>
+    <div id="map" style="width: 100%; height: 500px; border-radius: 0; margin: 20px 0 0 0; box-shadow: none;"></div>
+</div>
+
+<script src="https://api-maps.yandex.ru/2.1/?apikey={{ maps_api_key }}&lang=ru_RU" type="text/javascript"></script>
+<script type="text/javascript">
+    ymaps.ready(init);
+    function init() {
+        var coords = [55.79449772532176, 49.14070755087034];
+        var map = new ymaps.Map("map", {
+            center: coords,
+            zoom: 15,
+            controls: ["zoomControl", "fullscreenControl"]
+        });
+        var placemark = new ymaps.Placemark(coords, {
+            hintContent: "Quizsite",
+            balloonContent: "Здесь находится наш офис<br>г. Казань, ул. Карла Маркса, 72кБ"
+        });
+        map.geoObjects.add(placemark);
+    }
+</script>
+{% endblock %}

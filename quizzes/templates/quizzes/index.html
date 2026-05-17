@@ -1,0 +1,42 @@
+{% extends 'quizzes/base.html' %}
+
+{% block content %}
+<ul class="quiz-list">
+    {% for test in tests %}
+        {% if test.is_published == 1 %}
+        <li class="quiz-item">
+            <h2>{{ test.title }}</h2>
+            {% if test.photo %}
+                <p><img src="{{ test.photo.url }}" alt="{{ test.title }}" width="100" style="border-radius: 12px;"></p>
+            {% endif %}
+            <div class="article-panel">
+                <p class="first">Категория: {{ test.category.name }}
+                {% if user.is_authenticated %}
+                    | Автор: {{ test.author.username|default:"Неизвестен" }}
+                {% endif %}
+                </p>
+                <p class="last">Дата: {{ test.time_update|date:"d-m-Y H:i:s" }}</p>
+            </div>
+            <p>{{ test.description }}</p>
+
+            <a href="{{ test.get_absolute_url }}">Пройти тест</a>
+
+            {% if user.is_authenticated %}
+            <div class="admin-actions">
+                {% if perms.quizzes.change_quiz %}
+                    <a href="{% url 'update_page' test.id %}" class="edit-btn">Редактировать тест</a>
+                {% endif %}
+
+                {% if perms.quizzes.delete_quiz %}
+                    <a href="{% url 'delete_quiz' test.id %}" class="delete-btn"
+                       onclick="return confirm('Вы уверены, что хотите удалить тест "{{ test.title }}"?')">
+                       Удалить тест
+                    </a>
+                {% endif %}
+            </div>
+            {% endif %}
+        </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+{% endblock %}

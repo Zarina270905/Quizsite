@@ -1,0 +1,29 @@
+{% extends 'quizzes/base.html' %}
+
+{% block content %}
+<div class="quiz-detail-container">
+    <div class="quiz-detail-card">
+        <h1 class="quiz-detail-title">{{ post.title }}</h1>
+        {% if post.photo %}
+            <p><img class="img-article-left" src="{{ post.photo.url }}" alt="{{ post.title }}" style="max-width: 300px;"></p>
+        {% endif %}
+        <p class="quiz-detail-description">{{ post.description }}</p>
+        {% with post.tags.all as tags %}
+        {% if tags %}
+        <div class="tags-section">
+            <ul class="tags-list">
+                {% for t in tags %}
+                <li><a href="{{ t.get_absolute_url }}">{{ t.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        {% endwith %}
+        <div class="quiz-detail-info">
+            <p><span class="info-label">Категория:</span> {{ post.category.name }}</p>
+            <p><span class="info-label">Создан:</span> {{ post.time_create|date:"d.m.Y H:i" }}</p>
+        </div>
+        <a href="{% url 'home' %}" class="back-link">← Назад к тестам</a>
+    </div>
+</div>
+{% endblock %}

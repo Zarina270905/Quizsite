@@ -1,0 +1,891 @@
+/* Нежно-голубая гамма */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #e6f0fa;
+    color: #3a5a7a;
+}
+
+/* Меню в одну строку */
+.menu {
+    list-style: none;
+    text-align: center;
+    padding: 15px 0;
+    margin: 0;
+    background: #ffffff;
+    border-bottom: 1px solid #d6e6f2;
+}
+
+.menu li {
+    display: inline;
+    margin: 0 20px;
+}
+
+.menu li a {
+    color: #6a8aaa;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.menu li a:hover {
+    color: #8aaccc;
+}
+
+/* Заголовок */
+h1 {
+    max-width: 1200px;
+    margin: 30px auto 20px auto;
+    padding: 0 20px;
+    font-size: 28px;
+    color: #3a5a7a;
+    font-weight: 500;
+}
+
+/* Навигация категорий */
+.category-nav {
+    text-align: center;
+    padding: 12px;
+    margin: 15px auto;
+    background: #ffffff;
+    border-radius: 30px;
+    max-width: 1200px;
+    border: 1px solid #d6e6f2;
+}
+
+.category-nav a {
+    margin: 0 15px;
+    color: #6a8aaa;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.category-nav a:hover {
+    color: #8aaccc;
+}
+
+/* Сетка карточек тестов */
+.quiz-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    list-style: none;
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    border: 1px solid #d6e6f2;
+}
+
+/* Карточка теста */
+.quiz-item {
+    background: #f4f9fe;
+    border: 1px solid #dce8f2;
+    border-radius: 20px;
+    padding: 22px;
+    list-style: none;
+}
+
+.quiz-item:hover {
+    background: #fafdff;
+    border-color: #c8daea;
+}
+
+/* Название теста */
+.quiz-item h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: left;
+    color: #3a5a7a;
+    font-weight: 600;
+}
+
+/* Описание теста */
+.quiz-item p {
+    font-size: 14px;
+    color: #7a9aba;
+    margin-bottom: 15px;
+    text-align: left;
+    line-height: 1.5;
+}
+
+/* Ссылка "Пройти тест" */
+.quiz-item a {
+    display: inline-block;
+    background: #e6f0fa;
+    color: #6a8aaa;
+    padding: 8px 18px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 13px;
+    border: 1px solid #d6e6f2;
+}
+
+.quiz-item a:hover {
+    background: #d8e8f4;
+    color: #3a5a7a;
+}
+
+/* Скрыть hr */
+hr {
+    display: none;
+}
+
+/* Подвал */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 1px solid #d6e6f2;
+    font-size: 13px;
+    color: #9ab4cc;
+    background: #ffffff;
+}
+/* Горизонтальное отображение категорий */
+.category-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.category-nav li {
+    display: inline;
+}
+
+.category-nav a {
+    margin: 0 15px;
+    color: #6a8aaa;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.category-nav a:hover {
+    color: #8aaccc;
+}
+body > div:first-child {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+body > div:first-child > div {
+    background: #ffffff;
+    border: 1px solid #d6e6f2;
+    border-radius: 24px;
+    padding: 35px;
+}
+
+body > div:first-child h1 {
+    font-size: 28px;
+    color: #3a5a7a;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e6f0fa;
+    font-weight: 600;
+}
+
+body > div:first-child p {
+    font-size: 16px;
+    color: #5a7a9a;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+body > div:first-child p:not(:first-of-type) {
+    background: #f4f9fe;
+    border-radius: 16px;
+    padding: 12px 20px;
+    margin: 15px 0;
+}
+
+body > div:first-child a {
+    display: inline-block;
+    background: #e6f0fa;
+    color: #6a8aaa;
+    padding: 10px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 14px;
+    border: 1px solid #d6e6f2;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+body > div:first-child a:hover {
+    background: #d8e8f4;
+    color: #3a5a7a;
+}
+/* ===== СТРАНИЦА ТЕСТА (post.html) ===== */
+
+/* Контейнер страницы теста */
+.quiz-detail-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 30px;
+}
+
+/* Карточка теста */
+.quiz-detail-card {
+    background: #ffffff;
+    border: 1px solid #d6e6f2;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Заголовок теста */
+.quiz-detail-title {
+    font-size: 32px;
+    color: #3a5a7a;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #e6f0fa;
+    font-weight: 600;
+}
+
+/* Описание теста */
+.quiz-detail-description {
+    font-size: 18px;
+    color: #5a7a9a;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Информационный блок (категория, дата) */
+.quiz-detail-info {
+    background: #f4f9fe;
+    border-radius: 20px;
+    padding: 20px 25px;
+    margin-bottom: 30px;
+}
+
+.quiz-detail-info p {
+    margin: 10px 0;
+    font-size: 15px;
+    color: #5a7a9a;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #3a5a7a;
+    width: 100px;
+    display: inline-block;
+}
+
+/* Ссылка "Назад к тестам" */
+.back-link {
+    display: inline-block;
+    background: #e6f0fa;
+    color: #6a8aaa;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid #d6e6f2;
+    transition: all 0.3s ease;
+}
+
+.back-link:hover {
+    background: #d8e8f4;
+    color: #3a5a7a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+.article-panel {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 12px;
+    color: #7a9aba;
+    border-bottom: 1px solid #e6f0fa;
+    padding-bottom: 8px;
+}
+
+.article-panel .first {
+    font-weight: 500;
+}
+
+.article-panel .last {
+    text-align: right;
+}
+/* Стили для тегов */
+.tags-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.tags-list li {
+    display: inline;
+}
+
+.tags-list a {
+    display: inline-block;
+    background: #e6f0fa;
+    color: #6a8aaa;
+    padding: 5px 12px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 12px;
+    border: 1px solid #d6e6f2;
+    transition: all 0.3s ease;
+}
+
+.tags-list a:hover {
+    background: #d8e8f4;
+    color: #3a5a7a;
+}
+/* ===== СТРАНИЦА ДОБАВЛЕНИЯ ТЕСТА (addpage.html) ===== */
+
+/* Центрирование и карточка для формы */
+form {
+    max-width: 800px;
+    margin: 30px auto;
+    background: #ffffff;
+    border: 1px solid #d6e6f2;
+    border-radius: 24px;
+    padding: 35px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+/* Заголовок страницы */
+h1 {
+    max-width: 800px;
+    margin: 30px auto 0 auto;
+    font-size: 28px;
+    color: #3a5a7a;
+    font-weight: 500;
+}
+
+/* Стили для полей формы */
+form p {
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    font-weight: 500;
+    color: #3a5a7a;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+form input[type="text"],
+form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #d6e6f2;
+    border-radius: 12px;
+    font-size: 14px;
+    color: #3a5a7a;
+    background: #f4f9fe;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+form input[type="text"]:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #8aaccc;
+    background: #fafdff;
+    box-shadow: 0 0 0 3px rgba(106, 138, 170, 0.1);
+}
+
+form button {
+    background: #e6f0fa;
+    color: #6a8aaa;
+    padding: 12px 28px;
+    border-radius: 30px;
+    border: 1px solid #d6e6f2;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+form button:hover {
+    background: #d8e8f4;
+    color: #3a5a7a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+/* ===== СТИЛИ ДЛЯ ОШИБОК ФОРМЫ ===== */
+
+/* Контейнер для ошибок — только когда есть ошибки */
+.form-error {
+    display: none;
+}
+
+/* Когда есть ошибки в конкретном поле — показываем */
+.form-error:not(:empty) {
+    display: block;
+    color: #c62828 !important;
+    font-size: 13px !important;
+    margin-top: 5px !important;
+    margin-bottom: 12px !important;
+    padding: 6px 10px !important;
+    background-color: #ffebee !important;
+    border-left: 3px solid #c62828 !important;
+    border-radius: 4px !important;
+}
+
+/* Убираем точки перед сообщениями ошибок */
+.form-error ul {
+    margin: 0 !important;
+    padding-left: 0 !important;
+    list-style: none !important;
+}
+
+.form-error li {
+    color: #c62828 !important;
+    margin: 2px 0 !important;
+    list-style: none !important;
+}
+
+/* Убираем точку для одиночной ошибки */
+.form-error ul li:before {
+    display: none !important;
+}
+
+/* Поля с ошибками — подсветка */
+input.error,
+textarea.error,
+select.error {
+    border-color: #c62828 !important;
+    background-color: #fff5f5 !important;
+}
+.auth-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.separator {
+    color: #6a8aaa;
+}
+/* Стили для формы смены пароля */
+form input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #d6e6f2;
+    border-radius: 12px;
+    font-size: 14px;
+    background: #f4f9fe;
+    box-sizing: border-box;
+}
+/* Стиль для ссылки "Сменить пароль" */
+.password-change-link {
+    display: inline-block;
+    background: #e6f0fa;
+    color: #6a8aaa;
+    padding: 10px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 14px;
+    border: 1px solid #d6e6f2;
+    transition: all 0.3s ease;
+    margin-top: 5px;  /* ← изменили с 20px на 5px */
+}
+
+.password-change-link:hover {
+    background: #d8e8f4;
+    color: #3a5a7a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+/* ===== СТРАНИЦА УСПЕШНОГО ИЗМЕНЕНИЯ ПАРОЛЯ ===== */
+
+.success-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+}
+
+.success-card {
+    background: #ffffff;
+    border: 1px solid #d6e6f2;
+    border-radius: 24px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.success-card h1 {
+    color: #3a5a7a;
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.success-card p {
+    color: #5a7a9a;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.success-card a {
+    display: inline-block;
+    background: #e6f0fa;
+    color: #6a8aaa;
+    padding: 10px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 14px;
+    border: 1px solid #d6e6f2;
+    transition: all 0.3s ease;
+}
+
+.success-card a:hover {
+    background: #d8e8f4;
+    color: #3a5a7a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+/* Стиль для ссылки "Забыли пароль?" */
+.forgot-password-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: #6a8aaa;
+    text-decoration: none;
+    font-size: 13px;
+    transition: all 0.3s ease;
+}
+
+.forgot-password-link:hover {
+    color: #3a5a7a;
+    text-decoration: underline;
+}
+/* ===== СТРАНИЦА "СБРОС ПАРОЛЯ" (password_reset_done) - другой стиль ===== */
+
+.reset-done-container {
+    max-width: 650px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.reset-done-card {
+    background: #ffffff;
+    border: 1px solid #e0e8f0;
+    border-radius: 20px;
+    padding: 50px 40px;
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.reset-done-card h1 {
+    color: #2c5a7a;
+    font-size: 24px;
+    margin-bottom: 25px;
+    font-weight: 500;
+    border-left: 3px solid #8aaccc;
+    padding-left: 18px;
+}
+
+.reset-done-card p {
+    color: #5a7a9a;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.reset-done-card .warning-text {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e6eef5;
+    font-size: 14px;
+    color: #c27e3a;
+    display: block;
+    font-weight: 500;
+}
+/* ===== СТРАНИЦА "ПАРОЛЬ ИЗМЕНЕН" (password_reset_complete) ===== */
+
+.reset-complete-container {
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+.reset-complete-card {
+    background: #ffffff;
+    border: 1px solid #d6e6f2;
+    border-radius: 24px;
+    padding: 45px 35px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+}
+
+.reset-complete-card h1 {
+    color: #3a5a7a;
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.reset-complete-card p {
+    color: #5a7a9a;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.reset-complete-card .login-link {
+    display: inline-block;
+    background: #e6f0fa;
+    color: #6a8aaa;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid #d6e6f2;
+    transition: all 0.3s ease;
+}
+
+.reset-complete-card .login-link:hover {
+    background: #d8e8f4;
+    color: #3a5a7a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+/* Кнопки для админа и модератора на главной странице */
+.admin-actions {
+    margin: 15px 0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.edit-btn {
+    display: inline-block;
+    background: #f0ad4e;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.edit-btn:hover {
+    background: #ec971f;
+    transform: translateY(-2px);
+    color: white;
+}
+
+.delete-btn {
+    display: inline-block;
+    background: #d9534f;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+    background: #c9302c;
+    transform: translateY(-2px);
+    color: white;
+}
+
+.quiz-link {
+    display: inline-block;
+    background: #e6f0fa;
+    color: #6a8aaa;
+    padding: 6px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 13px;
+    margin-top: 10px;
+}
+/* Стили для страницы карты */
+.map-container {
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    width: 100%;
+}
+
+.map-title {
+    font-size: 28px;
+    color: #3a5a7a;
+    margin: 30px auto 20px auto;
+    padding: 0 20px;
+    max-width: 1200px;
+    font-weight: 500;
+    text-align: left;
+}
+
+/* Убираем все отступы у карты - на всю ширину */
+#map {
+    width: 100% !important;
+    height: 70vh !important;
+    min-height: 500px;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block;
+    position: relative;
+    left: 0;
+    right: 0;
+}
+/* ===== СТРАНИЦА НЕЙРОСЕТЕВОГО ПОМОЩНИКА (GPT) ===== */
+
+.gpt-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 30px;
+    background: #ffffff;
+    border-radius: 24px;
+    border: 1px solid #d6e6f2;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.gpt-container h1 {
+    font-size: 32px;
+    color: #3a5a7a;
+    margin-bottom: 12px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #e6f0fa;
+    font-weight: 600;
+}
+
+.gpt-container > p {
+    color: #5a7a9a;
+    font-size: 16px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* Форма */
+.gpt-form {
+    background: #f4f9fe;
+    border: 1px solid #dce8f2;
+    border-radius: 20px;
+    padding: 28px;
+    margin: 20px 0;
+}
+
+/* Поле ввода */
+.gpt-form textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #d6e6f2;
+    border-radius: 16px;
+    font-size: 15px;
+    font-family: inherit;
+    background: #ffffff;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    resize: vertical;
+    color: #3a5a7a;
+}
+
+.gpt-form textarea:focus {
+    outline: none;
+    border-color: #8aaccc;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(106, 138, 170, 0.1);
+}
+
+.gpt-form textarea::placeholder {
+    color: #9ab4cc;
+}
+
+/* Кнопка отправки */
+.gpt-btn {
+    background: #e6f0fa;
+    color: #6a8aaa;
+    padding: 12px 32px;
+    border-radius: 30px;
+    border: 1px solid #d6e6f2;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.gpt-btn:hover {
+    background: #d8e8f4;
+    color: #3a5a7a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.gpt-btn:active {
+    transform: translateY(0);
+}
+
+/* Блок с ответом */
+.gpt-answer {
+    background: #f4f9fe;
+    border-left: 4px solid #6a8aaa;
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 30px;
+    transition: all 0.3s ease;
+}
+
+.gpt-answer h3 {
+    color: #3a5a7a;
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e6f0fa;
+}
+
+.answer-content {
+    color: #4a6a8a;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .gpt-container {
+        padding: 25px 20px;
+        margin: 20px;
+    }
+
+    .gpt-container h1 {
+        font-size: 26px;
+    }
+
+    .gpt-form {
+        padding: 20px;
+    }
+
+    .gpt-btn {
+        width: 100%;
+    }
+}
+/* Адаптивность */
+@media (max-width: 800px) {
+    .quiz-list {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+        margin: 0 20px;
+    }
+}

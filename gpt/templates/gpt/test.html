@@ -1,0 +1,25 @@
+{% extends 'quizzes/base.html' %}
+
+{% block content %}
+<div class="gpt-container">
+    <h1>Яндекс GPT</h1>
+    <form method="post" class="gpt-form">
+        {% csrf_token %}
+        <div class="form-group">
+            <textarea name="question" rows="4" cols="50" placeholder="Введите ваш вопрос..." class="gpt-input">{{ question }}</textarea>
+        </div>
+        <button type="submit" class="gpt-btn">Отправить вопрос</button>
+    </form>
+    {% if result %}
+        <div class="gpt-answer">
+            <h3>Ответ:</h3>
+            <div class="answer-content">
+                {{ result|linebreaks }}
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+
+
