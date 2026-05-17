@@ -1,12 +1,45 @@
 {% extends 'quizzes/base.html' %}
+{% load static %}
 
 {% block content %}
-    <h1>{{ title }}</h1>
-    
-    <h2>Инструкция:</h2>
-    <ol>
-        {% for step in steps %}
-            <li>{{ step }}</li>
-        {% endfor %}
-    </ol>
+<div class="how-it-works">
+    <h1>Как это работает</h1>
+    <p>Создавайте тесты за 5 минут и делитесь с друзьями!</p>
+
+    <div class="steps-grid">
+        <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Зарегистрируйтесь</h3>
+            <p>Создайте аккаунт на сайте - это бесплатно и займет минуту</p>
+        </div>
+
+        <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Создайте тест</h3>
+            <p>Нажмите кнопку "Создать тест" и придумайте тему</p>
+        </div>
+
+        <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Добавьте вопросы</h3>
+            <p>Напишите вопросы и варианты ответов</p>
+        </div>
+
+        <div class="step-card">
+            <div class="step-number">4</div>
+            <h3>Опубликуйте</h3>
+            <p>Проверьте тест и нажмите "Опубликовать"</p>
+        </div>
+
+        <div class="step-card">
+            <div class="step-number">5</div>
+            <h3>Делитесь</h3>
+            <p>Отправьте ссылку друзьям и соревнуйтесь!</p>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <a href="{% url 'users:register' %}" class="cta-button">Начать создавать тест</a>
+    </div>
+</div>
 {% endblock %}

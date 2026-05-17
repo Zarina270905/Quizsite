@@ -880,6 +880,140 @@ form input[type="password"] {
         width: 100%;
     }
 }
+.how-it-works {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 30px;
+}
+
+.how-it-works h1 {
+    font-size: 32px;
+    color: #3a5a7a;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #e6f0fa;
+    font-weight: 600;
+    text-align: center;
+}
+
+.how-it-works > p {
+    text-align: center;
+    color: #5a7a9a;
+    font-size: 18px;
+    margin-bottom: 50px;
+}
+
+/* Сетка инструкций */
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 25px;
+    margin: 50px 0;
+}
+
+/* Карточка шага - без анимации */
+.step-card {
+    background: #ffffff;
+    border: 1px solid #d6e6f2;
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+/* Номер шага */
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: #e6f0fa;
+    color: #6a8aaa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Заголовок шага */
+.step-card h3 {
+    font-size: 18px;
+    color: #3a5a7a;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+/* Описание шага */
+.step-card p {
+    font-size: 14px;
+    color: #7a9aba;
+    line-height: 1.5;
+}
+
+/* Секция с кнопкой - без фона */
+.cta-section {
+    text-align: center;
+    margin-top: 50px;
+    padding: 40px;
+}
+
+.cta-section h2 {
+    font-size: 24px;
+    color: #3a5a7a;
+    margin-bottom: 15px;
+}
+
+.cta-section p {
+    color: #5a7a9a;
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+
+/* Простая кнопка без анимации */
+.cta-button {
+    display: inline-block;
+    background: #8aaccc;
+    color: #ffffff;
+    padding: 12px 32px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+}
+
+/* Убираем анимацию при наведении */
+.cta-button:hover {
+    background: #7a9aba;
+    color: #ffffff;
+}
+/* Адаптивность */
+@media (max-width: 1000px) {
+    .steps-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 700px) {
+    .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .how-it-works {
+        padding: 30px 20px;
+    }
+
+    .how-it-works h1 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+}
 /* Адаптивность */
 @media (max-width: 800px) {
     .quiz-list {
